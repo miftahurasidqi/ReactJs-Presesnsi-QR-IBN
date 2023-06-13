@@ -15,14 +15,6 @@ function DaftarKehadiran() {
   const [inputCari, setInputCari] = useState("");
   const [hasilPencarian, setHasilPencarian] = useState([]);
   const [err, setErr] = useState(false);
-  // const [errMsg, setErrMsg] = useState("");
-
-  // const tanggal = new Date();
-  // console.log(totalDocuments);
-  // console.log(totalDocuments);
-  // console.log(totalDocuments);
-  // console.log(totalDocuments);
-  // console.log(totalDocuments);
 
   useEffect(() => {
     if (getToken() === undefined && getUser() === undefined) moveTo("");
@@ -31,9 +23,6 @@ function DaftarKehadiran() {
     if (hasilPencarian.length > 0) {
       setKehadiranList(hasilPencarian);
     }
-    // if (err) {
-    //   console.log("error");
-    // }
     if (hasilPencarian.length === 0) {
       semuaKehadiran(halaman, setKehadiranList, setTotalDocuments, setHalaman, setTotalHalaman, setNext, setPrev, setErr);
     }
@@ -55,7 +44,6 @@ function DaftarKehadiran() {
         </form>
 
         <div className="w-full p-2">
-          {/* <div> */}
           <table className="w-full lg:mx-auto lg:mt-5 ">
             <thead className="bg-blue-100 border border-gray-700">
               <tr>

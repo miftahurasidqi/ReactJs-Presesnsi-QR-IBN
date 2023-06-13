@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { getToken, getUser, moveTo, handlePrev, handleNext } from "../services/utils";
-
 import { semuaPegawai, confirmDelete } from "../services/pegawaiApi";
-
 import AdminNav from "../components/navigations/adminNav";
 import PageCard from "../components/card/pageCard";
 import RegistrasiPegawai from "./registrasiPegawai";

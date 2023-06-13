@@ -35,14 +35,9 @@ function KodeAbsen() {
   useEffect(() => {
     if (getToken() === undefined && getUser() === undefined) moveTo("");
     const user = getUser();
-    console.log(user);
     if (user.peran !== "admin") moveTo("absensi");
     ambilKode();
   }, []);
-  // const { data } = useSWR("kehadiran/kode", ambilKode);
-  // console.log(data);
-  // console.log(data.kodeKeluar);
-  // setKodeKeluar(data.kodeKeluar.kode);
 
   const screenWidth = window.innerWidth;
   let size;

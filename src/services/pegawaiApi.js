@@ -86,7 +86,6 @@ const semuaPegawai = async (halaman = 1, setUserList, setTotalDocuments, setHala
         Authorization: token,
         halaman: halaman,
       },
-      // body: requestingData,
     });
 
     console.log(response.data);
@@ -106,7 +105,6 @@ const semuaPegawai = async (halaman = 1, setUserList, setTotalDocuments, setHala
       setPrev(false);
     }
   } catch (error) {
-    // setErr(true);
     console.log(error);
   }
 };
@@ -133,7 +131,6 @@ const editUser = async (e, id, nama, nip, status, peran, password, setErr, setEr
         Authorization: token,
         "Content-Type": "application/json",
       },
-      // body: requestingData,
     });
     console.log(response);
     alert("Edit User Berhasil");

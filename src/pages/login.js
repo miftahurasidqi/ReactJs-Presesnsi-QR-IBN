@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { loginApi } from "../services/pegawaiApi";
-
 import { moveTo, getToken, getUser, handleInput } from "../services/utils";
 
 function Login() {
@@ -19,8 +18,6 @@ function Login() {
     }
   }, []);
 
-  // onSubmit={(e) => userLogin(e)}
-  // onSubmit={userLogin}
   return (
     <main className="flex h-screen justify-center items-center">
       <form>

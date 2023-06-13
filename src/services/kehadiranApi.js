@@ -31,12 +31,9 @@ const periksaKehadiran = async (setInfoKehadiran, setKehadiran) => {
   } catch (error) {
     console.log(error);
   }
-
-  // setInfoKehadiran("00");
 };
 
 const absenKehadiran = async (kode) => {
-  // ev.preventDefault();
   try {
     const token = getToken();
     const response = await axios({
@@ -74,8 +71,6 @@ const semuaKehadiran = async (halaman, setKehadiranList, setTotalDocuments, setH
     setTotalDocuments(response.data.halamanInfo.totalData);
     setHalaman(response.data.halamanInfo.halaman);
     setTotalHalaman(response.data.halamanInfo.totalHalaman);
-    // setNext()
-    // setPrev()
     if (response.data.halamanInfo.totalHalaman > response.data.halamanInfo.halaman) {
       setNext(false);
     } else if (response.data.halamanInfo.totalHalaman === response.data.halamanInfo.halaman) {
@@ -91,8 +86,8 @@ const semuaKehadiran = async (halaman, setKehadiranList, setTotalDocuments, setH
     console.log(error);
   }
 };
+
 const kehadiranSaya = async (halaman, setKehadiranList, setErr) => {
-  // const kehadiranSaya = async (halaman, setKehadiranList, setTotalDocuments, setTotalHalaman, setNext, setPrev) => {
   const user = getUser();
   try {
     setErr(false);
@@ -113,6 +108,7 @@ const kehadiranSaya = async (halaman, setKehadiranList, setErr) => {
     setErr(true);
   }
 };
+
 const cariKehadiran = async (ev, halaman, inputCari, setHasilPencarian, setErr) => {
   ev.preventDefault();
   setErr(null);
@@ -140,13 +136,8 @@ const cariKehadiran = async (ev, halaman, inputCari, setHasilPencarian, setErr) 
     }
     console.log(response);
     setHasilPencarian(response.data.kehadiran);
-    // setTotalDocuments()
-    // setTotalHalaman()
-    // setNext()
-    // setPrev()
   } catch (error) {
     setErr(error.response.data.message);
-    // setHasilPencarian([]);
     console.log(error);
   }
 };

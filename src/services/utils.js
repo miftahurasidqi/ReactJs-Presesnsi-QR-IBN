@@ -32,8 +32,6 @@ const getUser = () => {
 };
 const getLocalUser = () => {
   const stringUser = localStorage.getItem("user");
-  // const user = [userLogin._id, userLogin.nama, userLogin.nip, userLogin.status, userLogin.peran];
-
   if (!stringUser) return undefined;
   const user = stringUser.split(":");
 
@@ -48,8 +46,6 @@ const getLocalUser = () => {
 
 const getEditUser = () => {
   const stringUser = localStorage.getItem("userEdit");
-  // const user = [userLogin._id, userLogin.nama, userLogin.nip, userLogin.status, userLogin.peran];
-
   if (!stringUser) return undefined;
   const user = stringUser.split(":");
 

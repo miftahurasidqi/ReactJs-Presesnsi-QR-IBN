@@ -10,10 +10,6 @@ function Absen() {
   const [infoKehadiran, setInfoKehadiran] = useState("");
   const [kehadiran, setKehadiran] = useState([]);
   const [isScan, setIsScan] = useState(true);
-  const [result, setResult] = useState(null);
-
-  // const [isScanDatang, setIsScanDatang] = useState(false);
-  // const [isScanPulang, setIsScanPulang] = useState(false);
 
   useEffect(() => {
     if (getToken() === undefined && getUser() === undefined) moveTo("");
@@ -47,9 +43,6 @@ function Absen() {
       },
     };
     const handleScan = (decodedText, decodedRes) => {
-      setResult(decodedText);
-      console.log(decodedText);
-      console.log(decodedRes);
       absenKehadiran(decodedText);
     };
     const handleError = (err) => {
@@ -121,9 +114,6 @@ function Absen() {
                   <button onClick={(ev) => Scan(ev, "masuk")} className="shadow-sm p-2 rounded-full bg-blue-700">
                     <QR />
                   </button>
-                  {/* <button onClick={(ev) => absenKehadiran("52da4359de")} className="shadow-sm px-2 rounded-full">
-                    Absen
-                  </button> */}
                   <h1 className={` text-md lg:text-3xl font-sans`}>Silahkan scan kode untuk absen datang</h1>
                 </div>
 
@@ -131,9 +121,7 @@ function Absen() {
                   <button onClick={(ev) => Scan(ev, "keluar")} className="shadow-sm p-2 rounded-full bg-blue-700">
                     <QR />
                   </button>
-                  {/* <button onClick={(ev) => absenKehadiran("52480fef1c")} className="shadow-sm px-2 rounded-full">
-                    Absen
-                  </button> */}
+
                   <h1 className={` text-md lg:text-3xl font-sans`}>Silahkan scan kode untuk absen pulang</h1>
                 </div>
 

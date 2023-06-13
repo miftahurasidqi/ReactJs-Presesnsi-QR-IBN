@@ -5,7 +5,7 @@ import { moveTo, getToken, getUser, getEditUser, handleInput } from "../services
 import { Close } from "../components/utils/icon";
 import { InputDropdownUser } from "../components/utils/inputDropdown";
 
-function EditUser({ setClose }) {
+function EditUser() {
   const [id, setId] = useState("");
   const [namaLengkap, setNamaLengkap] = useState("");
   const [NIP, setNIP] = useState("");
@@ -37,7 +37,6 @@ function EditUser({ setClose }) {
         <div className="w-[340px] lg:w-96 p-7 shadow-xl shadow-gray-600 rounded-md bg-white">
           <div className="flex flex-col justify-center items-center gap-1 lg:gap-2 py-3 pb-10">
             <h2 className="text-gray-800 text-2xl lg:text-3xl font-semibold inline-block">Edit User</h2>
-            {/* <h2 className="text-gray-800 text-2xl lg:text-3xl font-semibold inline-block">QR-Code</h2> */}
           </div>
           <div className="flex items-center justify-between  mb-3 lg:mb-5">
             <label className="w-[27%] text-gray-700 text-sm lg:text-md" htmlFor="Nama">
@@ -81,19 +80,7 @@ function EditUser({ setClose }) {
               required
             />
           </div>
-          {/* <div className="flex items-center justify-between  mb-3 lg:mb-5">
-            <label className="w-[27%] text-gray-700 py-2 text-sm lg:text-md" htmlFor="Role">
-              Role
-            </label>
-            <input
-              onChange={(ev) => handleInput(ev.target.value, setRole, setErr)}
-              required
-              className="w-[70%] px-2 py-1 lg:p-2 bg-gray-100 text-gray-700 rounded-md outline-blue-700 ring-2 ring-blue-900"
-              type="text"
-              placeholder="Masukan Role"
-              id="Role"
-            />
-          </div> */}
+
           <InputDropdownUser options={["admin", "pegawai"]} select={role} setSelect={setRole} setErr={setErr} />
           <div className="flex items-center justify-between  mb-7">
             <label className="w-[27%] text-gray-700 py-2 text-sm lg:text-md" htmlFor="Password">
@@ -110,7 +97,6 @@ function EditUser({ setClose }) {
             />
           </div>
 
-          {/*  */}
           <div className="w-full relative">
             <p className={`${err ? "block" : "hidden"} absolute text-red-700 -mt-6`}>{errMsg}</p>
             <button onClick={(ev) => editUser(ev, id, namaLengkap, NIP, status, role, password, setErr, setErrMsg)} type="submit" className="flex w-full bg-blue-800 hover:bg-blue-700 text-white rounded-md">
