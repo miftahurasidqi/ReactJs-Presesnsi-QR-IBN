@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { editUser } from "../services/pegawaiApi";
-import { moveTo, getToken, getUser, getLocalUser, getEditUser, handleInput } from "../services/utils";
+import { moveTo, getToken, getUser, getEditUser, handleInput } from "../services/utils";
 
 import { Close } from "../components/utils/icon";
 import { InputDropdownUser } from "../components/utils/inputDropdown";
