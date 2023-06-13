@@ -59,7 +59,7 @@ const absenKehadiran = async (kode) => {
 };
 
 const semuaKehadiran = async (halaman, setKehadiranList, setTotalDocuments, setHalaman, setTotalHalaman, setNext, setPrev, setErr) => {
-  setErr(null);
+  setErr(false);
   try {
     const token = getToken();
     const response = await axios({
@@ -87,6 +87,7 @@ const semuaKehadiran = async (halaman, setKehadiranList, setTotalDocuments, setH
       setPrev(false);
     }
   } catch (error) {
+    setErr(true);
     console.log(error);
   }
 };
@@ -109,6 +110,7 @@ const kehadiranSaya = async (halaman, setKehadiranList, setErr) => {
     if (datKehadiran.length === 0) setErr(true);
   } catch (error) {
     console.log(error);
+    setErr(true);
   }
 };
 const cariKehadiran = async (ev, halaman, inputCari, setHasilPencarian, setErr) => {

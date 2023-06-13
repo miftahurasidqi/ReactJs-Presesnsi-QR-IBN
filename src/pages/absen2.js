@@ -130,7 +130,6 @@ function Absen() {
                 <div className={`${infoKehadiran === "10" ? "" : "hidden"} w-full flex flex-col items-center gap-3 mt-8`}>
                   <button onClick={(ev) => Scan(ev, "keluar")} className="shadow-sm p-2 rounded-full bg-blue-700">
                     <QR />
-                    kkkk
                   </button>
                   {/* <button onClick={(ev) => absenKehadiran("52480fef1c")} className="shadow-sm px-2 rounded-full">
                     Absen
@@ -146,12 +145,12 @@ function Absen() {
 
               <div className={`${isScan ? "hidden" : ""}`}>
                 <div className={`${infoKehadiran === "00" ? "" : "hidden"} flex justify-center`}>
-                  <h1 className="mt-4 mb-12 text-xl">Arahkan kamera ke kode masuk {result}</h1>
+                  <h1 className="mt-4 mb-12 text-xl">Arahkan kamera ke kode masuk</h1>
                 </div>
                 <div id="masuk"></div>
 
                 <div className={`${infoKehadiran === "10" ? "" : "hidden"} flex justify-center`}>
-                  <h1 className="mt-4 mb-12 text-xl">Arahkan kamera ke kode keluar {result}</h1>
+                  <h1 className="mt-4 mb-12 text-xl">Arahkan kamera ke kode keluar</h1>
                 </div>
                 <div id="keluar"></div>
               </div>

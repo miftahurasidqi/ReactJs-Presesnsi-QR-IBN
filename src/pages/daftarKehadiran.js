@@ -14,7 +14,8 @@ function DaftarKehadiran() {
   const [next, setNext] = useState(true);
   const [inputCari, setInputCari] = useState("");
   const [hasilPencarian, setHasilPencarian] = useState([]);
-  const [err, setErr] = useState(null);
+  const [err, setErr] = useState(false);
+  // const [errMsg, setErrMsg] = useState("");
 
   // const tanggal = new Date();
   // console.log(totalDocuments);
@@ -30,13 +31,13 @@ function DaftarKehadiran() {
     if (hasilPencarian.length > 0) {
       setKehadiranList(hasilPencarian);
     }
-    if (hasilPencarian.length === 0 && err) {
-      console.log("error");
-    }
+    // if (err) {
+    //   console.log("error");
+    // }
     if (hasilPencarian.length === 0) {
       semuaKehadiran(halaman, setKehadiranList, setTotalDocuments, setHalaman, setTotalHalaman, setNext, setPrev, setErr);
     }
-  }, [hasilPencarian, halaman, err]);
+  }, [hasilPencarian, halaman]);
   return (
     <>
       <AdminNav posision={"daftarkehadiran"} role={true} />
@@ -82,7 +83,7 @@ function DaftarKehadiran() {
             <tbody className={`${err ? "" : "hidden"} border border-gray-700`}>
               <tr className="text-center">
                 <td colSpan={5} className="text-center lg:text-2xl px-2 lg:px-4 py-8 lg:py-10 border text-red-700 border-gray-700">
-                  {err}
+                  Data Tidak Ditemukan
                 </td>
               </tr>
             </tbody>
