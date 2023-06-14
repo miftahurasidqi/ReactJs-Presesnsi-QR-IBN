@@ -52,6 +52,7 @@ const absenKehadiran = async (kode) => {
   } catch (error) {
     const message = error.response.data.message;
     alert(message);
+    window.location.reload();
   }
 };
 

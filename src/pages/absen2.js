@@ -42,19 +42,22 @@ function Absen() {
         height: 250,
       },
     };
+    let scanner;
+
     const handleScan = (decodedText, decodedRes) => {
+      scanner.stop();
       absenKehadiran(decodedText);
     };
     const handleError = (err) => {
       console.log(err);
     };
     if (jenis === "masuk") {
-      const scanner = new Html5Qrcode("masuk");
+      scanner = new Html5Qrcode("masuk");
       scanner.start(cameraId, config, handleScan, handleError).catch((err) => {
         console.log("err 1");
       });
     } else {
-      const scanner = new Html5Qrcode("keluar");
+      scanner = new Html5Qrcode("keluar");
       scanner
         .start(cameraId, config, handleScan, handleError)
         .catch((err) => {
