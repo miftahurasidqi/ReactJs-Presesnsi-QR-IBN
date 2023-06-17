@@ -3,9 +3,7 @@ import { Html5Qrcode } from "html5-qrcode";
 import { periksaKehadiran, absenKehadiran } from "../services/kehadiranApi";
 import { moveTo, getUser, getToken } from "../services/utils";
 import PegawaiNav from "../components/navigations/pegawaiNav";
-import PageCard from "../components/card/pageCard";
 import { QR } from "../components/utils/icon";
-import CardView from "../components/card/cardView";
 
 function Absen() {
   const [infoKehadiran, setInfoKehadiran] = useState("");
