@@ -56,7 +56,7 @@ function KodeAbsen() {
           <PageCard claases={"h-full"}>
             <div className="h-full flex flex-col justify-evenly lg:justify-around items-center">
               <div>
-                <h1 className="text-4xl lg:text-6xl font-sans">Absen Masuk</h1>
+                <h1 className="text-4xl lg:text-6xl font-sans">Absen Datang</h1>
               </div>
               <div className={`w-[${size}] h-[${size}]`}>
                 {kodeMasuk ? (
@@ -68,7 +68,7 @@ function KodeAbsen() {
                 )}
               </div>
               <div className="relative w-full">
-                <h1 className="text-md lg:text-3xl font-sans flex justify-center">Silahkan scan kode untuk absen masuk</h1>
+                <h1 className="text-md lg:text-3xl font-sans flex justify-center">Silahkan scan kode untuk absen datang</h1>
                 <button onClick={(ev) => setKodeTogle(!kodeTogle)} className="absolute -bottom-2 right-4 lg:bottom-0 bg-gray-100 text-gray-600 hover:bg-gray-200 shadow-sm px-2 rounded-full inline-block">
                   <PanahKananIcon claases={"w-5 h-5 lg:w-7 h-7"} />
                 </button>
@@ -78,7 +78,7 @@ function KodeAbsen() {
           <PageCard claases={"h-full"}>
             <div className="h-full flex flex-col justify-evenly lg:justify-around items-center">
               <div>
-                <h1 className="text-4xl lg:text-6xl font-sans">Absen Keluar</h1>
+                <h1 className="text-4xl lg:text-6xl font-sans">Absen Pulang</h1>
               </div>
               <div className={`w-[${size}] h-[${size}]`}>
                 {kodeMasuk ? (
@@ -90,7 +90,7 @@ function KodeAbsen() {
                 )}
               </div>
               <div className="relative w-full">
-                <h1 className="text-md lg:text-3xl font-sans flex justify-center">Silahkan scan kode untuk absen keluar</h1>
+                <h1 className="text-md lg:text-3xl font-sans flex justify-center">Silahkan scan kode untuk absen pulang</h1>
                 <button onClick={(ev) => setKodeTogle(!kodeTogle)} className="absolute -bottom-2 left-4 lg:bottom-0 bg-gray-100 text-gray-600 hover:bg-gray-200 shadow-sm px-2 rounded-full inline-block">
                   <PanahKiriIcon claases={"w-5 h-5 lg:w-7 h-7"} />
                 </button>

@@ -41,43 +41,40 @@ function DaftarUser() {
             <RegistrasiPegawai setClose={setAddTogle} />
           </div>
         </div>
-        <div className="w-full p-2">
+        <div className="overflow-x-scroll w-full p-2">
           {/* <div> */}
-          <table className="w-full lg:mx-auto lg:mt-5 ">
-            <thead className=" border border-gray-700">
-              <tr>
-                <td className="text-sm lg:text-md p-1 lg:p-2 font-bold">No</td>
-                <td className="text-sm lg:text-md p-1 lg:p-2 font-bold">Nama Lengkap</td>
-                <td className="text-sm lg:text-md p-1 lg:p-2 font-bold">NIP</td>
-                <td className="text-sm lg:text-md p-1 lg:p-2 font-bold">Status</td>
-                <td className="text-sm lg:text-md p-1 lg:p-2 font-bold">Role</td>
-                <td className="text-sm lg:text-md p-1 lg:p-2 font-bold"></td>
-              </tr>
-            </thead>
-            <tbody className="border border-gray-700">
-              {userList.map((user, i) => {
-                let bg = false;
-                if (i % 2 === 0) bg = true;
-                let NO = i + 1;
-                return (
-                  <tr className={`${bg ? "bg-gray-200" : ""}`} key={user._id}>
-                    <td className="text-sm lg:text-md p-1 lg:p-2">{NO}</td>
-                    <td className="text-sm lg:text-md p-1 lg:p-2">{user.nama}</td>
-                    <td className="text-sm lg:text-md p-1 lg:p-2">{user.nip}</td>
-                    <td className="text-sm lg:text-md p-1 lg:p-2">{user.status}</td>
-                    <td className="text-sm lg:text-md p-1 lg:p-2">{user.peran}</td>
-                    <td className="text-sm lg:text-md p-1 lg:p-2 flex gap-2 lg:gap-5 justify-center">
-                      <button className="text-gray-700" onClick={(ev) => editUser(ev, user)}>
-                        <EditPen />
-                      </button>
-                      <button className="text-gray-700" onClick={(ev) => confirmDelete(ev, user)}>
-                        <Trash />
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
+          <table className="min-w-full lg:mx-auto lg:mt-5 ">
+            <tr className="w-full border border-gray-700">
+              <th className="text-sm lg:text-md px-2 py-1 lg:px-4 font-bold border border-gray-700">No</th>
+              <th className="text-sm lg:text-md px-2 py-1 lg:px-4 font-bold border border-gray-700">Nama Lengkap</th>
+              <th className="text-sm lg:text-md px-2 py-1 lg:px-4 font-bold border border-gray-700">NIP/NIDN</th>
+              <th className="text-sm lg:text-md px-2 py-1 lg:px-4 font-bold border border-gray-700">Status</th>
+              <th className="text-sm lg:text-md px-2 py-1 lg:px-4 font-bold border border-gray-700">Role</th>
+              <th className="text-sm lg:text-md px-2 py-1 lg:px-4 font-bold border border-gray-700">Actions</th>
+            </tr>
+
+            {userList.map((user, i) => {
+              let bg = false;
+              if (i % 2 === 0) bg = true;
+              let NO = i + 1;
+              return (
+                <tr className={`${bg ? "bg-gray-100" : ""} w-full border border-gray-700`} key={user._id}>
+                  <td className="text-sm lg:text-md px-2 py-1 lg:px-4 border border-gray-700">{NO}</td>
+                  <td className="text-sm lg:text-md px-2 py-1 lg:px-4 border border-gray-700">{user.nama}</td>
+                  <td className="text-sm lg:text-md px-2 py-1 lg:px-4 border border-gray-700">{user.nip}</td>
+                  <td className="text-sm lg:text-md px-2 py-1 lg:px-4 border border-gray-700">{user.status}</td>
+                  <td className="text-sm lg:text-md px-2 py-1 lg:px-4 border border-gray-700">{user.peran}</td>
+                  <td className="text-sm lg:text-md px-2 py-1 lg:px-4 borde border-gray-700 flex gap-2 lg:gap-5  justify-center">
+                    <button className="text-gray-700" onClick={(ev) => editUser(ev, user)}>
+                      <EditPen />
+                    </button>
+                    <button className="text-gray-700" onClick={(ev) => confirmDelete(ev, user)}>
+                      <Trash />
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </table>
         </div>
         <div className={`${totalDocuments > 10 ? "block" : "hidden"} mt-1 flex gap-4 p-0 py-4 sm:p-4`}>

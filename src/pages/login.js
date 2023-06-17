@@ -27,14 +27,14 @@ function Login() {
             <h2 className="text-gray-800 text-2xl lg:text-3xl font-semibold inline-block">QR-Code</h2>
           </div>
           <label className="text-gray-700" htmlFor="NIP">
-            NIP
+            NIP/NIDN
           </label>
           <input
             onChange={(ev) => handleInput(ev.target.value, setNIP, setErr)}
             required
             className="w-full p-2 bg-gray-100 text-gray-700 rounded-md outline-blue-700 mb-4 ring-2 ring-blue-900"
             type="number"
-            placeholder="Masukan NIP"
+            placeholder="Masukan NIP/NIDN"
             id="NIP"
           />
           {/*  */}

@@ -110,37 +110,102 @@ const kehadiranSaya = async (halaman, setKehadiranList, setErr) => {
   }
 };
 
-const cariKehadiran = async (ev, halaman, inputCari, setHasilPencarian, setErr) => {
-  ev.preventDefault();
-  setErr(null);
+const carikehadiranByTanggal = async (halaman, tanggal, setKehadiranList, setTotalDocuments, setHalaman, setTotalHalaman, setNext, setPrev, setErr) => {
+  setErr(false);
   try {
     const token = getToken();
     const headers = {
       Authorization: token,
-      tanggal: inputCari,
+      tanggal: tanggal,
     };
     let response;
-    if (inputCari === "") {
-      response = await axios({
-        method: "get",
-        url: `${API_BASE_URL}/kehadiran?halaman=${halaman}`,
-        headers: {
-          Authorization: token,
-        },
-      });
-    } else {
-      response = await axios({
-        method: "get",
-        url: `${API_BASE_URL}/kehadiran/cari?halaman=${halaman}`,
-        headers,
-      });
-    }
+
+    response = await axios({
+      method: "get",
+      url: `${API_BASE_URL}/kehadiran/cariByTanggal?halaman=${halaman}`,
+      headers,
+    });
+
     console.log(response);
-    setHasilPencarian(response.data.kehadiran);
+    setKehadiranList(response.data.kehadiran);
+    setTotalDocuments(response.data.halamanInfo.totalData);
+    setHalaman(response.data.halamanInfo.halaman);
+    setTotalHalaman(response.data.halamanInfo.totalHalaman);
+    if (response.data.halamanInfo.totalHalaman > response.data.halamanInfo.halaman) {
+      setNext(false);
+    } else if (response.data.halamanInfo.totalHalaman === response.data.halamanInfo.halaman) {
+      setNext(true);
+    }
+    if (response.data.halamanInfo.totalHalaman === 1) {
+      setPrev(true);
+    } else if (response.data.halamanInfo.totalHalaman > 1) {
+      setPrev(false);
+    }
   } catch (error) {
-    setErr(error.response.data.message);
+    setErr(true);
     console.log(error);
   }
 };
+const cariKehadiranByNama = async (nama, setHasilCari, setErr) => {
+  try {
+    setErr(false);
+    // if(nama === "")
+    const token = getToken();
+    const response = await axios({
+      method: "get",
+      url: `${API_BASE_URL}/kehadiran/cariByName/${nama}`,
+      headers: {
+        Authorization: token,
+      },
+    });
+    const dataKehadiran = response.data.kehadiran;
+    console.log(dataKehadiran);
+    setHasilCari(dataKehadiran);
+  } catch (error) {
+    console.log(error);
+    setErr(true);
+  }
+};
+const cariKehadiranByIdAndMonth = async (halaman, _id, month, setKehadiranList, setTotalDocuments, setHalaman, setTotalHalaman, setPrev, setNext, setErr) => {
+  try {
+    setErr(false);
+    const token = getToken();
+    const response = await axios({
+      method: "get",
+      url: `${API_BASE_URL}/kehadiran/cariByMonth/${_id}/${month}?halaman=${halaman}`,
+      headers: {
+        Authorization: token,
+      },
+    });
+    const datKehadiran = response.data.kehadiran;
 
-export { ambilKode, periksaKehadiran, absenKehadiran, semuaKehadiran, kehadiranSaya, cariKehadiran };
+    setKehadiranList(datKehadiran);
+    if (datKehadiran.length === 0) setErr(true);
+    setTotalDocuments(response.data.halamanInfo.totalData);
+    setHalaman(response.data.halamanInfo.halaman);
+    setTotalHalaman(response.data.halamanInfo.totalHalaman);
+    if (response.data.halamanInfo.totalHalaman > response.data.halamanInfo.halaman) {
+      setNext(false);
+    } else if (response.data.halamanInfo.totalHalaman === response.data.halamanInfo.halaman) {
+      setNext(true);
+    }
+    if (response.data.halamanInfo.totalHalaman === 1) {
+      setPrev(true);
+    } else if (response.data.halamanInfo.totalHalaman > 1) {
+      setPrev(false);
+    }
+  } catch (error) {
+    console.log(error);
+    setErr(true);
+  }
+};
+
+const getDataKehadiran = async (halaman, tanggal, nama, setKehadiranList, setTotalDocuments, setHalaman, setTotalHalaman, setNext, setPrev, setErr) => {
+  if (tanggal) {
+    carikehadiranByTanggal(halaman, tanggal, setKehadiranList, setTotalDocuments, setHalaman, setTotalHalaman, setNext, setPrev, setErr);
+  } else {
+    semuaKehadiran(halaman, setKehadiranList, setTotalDocuments, setHalaman, setTotalHalaman, setNext, setPrev, setErr);
+  }
+};
+
+export { ambilKode, periksaKehadiran, absenKehadiran, kehadiranSaya, getDataKehadiran, carikehadiranByTanggal, cariKehadiranByNama, cariKehadiranByIdAndMonth };

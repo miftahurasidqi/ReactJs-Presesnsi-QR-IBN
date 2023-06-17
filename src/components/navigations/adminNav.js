@@ -11,13 +11,13 @@ function AdminNav({ posision, role }) {
   const [daftarUser, setDaftarUser] = useState([false, "Daftar User", "daftaruser"]);
 
   useEffect(() => {
-    if (posisi === "kodeabsen") setKodeAbsen([true, "Kode Absen", ""]);
-    if (posisi === "daftarkehadiran") setDaftarKehadiran([true, "Daftar Kehadiran", ""]);
-    if (posisi === "daftaruser") setDaftarUser([true, "Daftar User", ""]);
+    if (posisi === "kodeabsen") setKodeAbsen([true, "Kode Absen", "kodeabsen"]);
+    if (posisi === "daftarkehadiran") setDaftarKehadiran([true, "Daftar Kehadiran", "daftarkehadiran"]);
+    if (posisi === "daftaruser") setDaftarUser([true, "Daftar User", "daftaruser"]);
   }, [posisi]);
 
   return (
-    <aside className={`${role ? "block" : "hidden"} py-3 px-5 w-full h-[8vh] lg:w-60 lg:h-full border-r border-gray-200 bg-white bg-opacity-50 backdrop-blur-sm shadow-custom fixed`}>
+    <aside className={`${role ? "block" : "hidden"} py-3 px-5 w-full h-[8vh] lg:w-60 lg:h-full border-r border-gray-200 bg-gray-200 bg-opacity-50 backdrop-blur-sm shadow-custom fixed`}>
       <div className="flex items-center">
         <img src={ibn} alt="Logo" className="h-8 lg:h-16 lg:mt-2" />
         <div className="ml-2 lg:mt-3 flex gap-1 lg:block">

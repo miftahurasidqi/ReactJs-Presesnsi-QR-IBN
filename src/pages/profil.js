@@ -26,7 +26,7 @@ function Profile() {
             <div className="flex gap-1">
               <div className="px-3 py-4">
                 <p className="text-xs text-gray-600">Nama Lengkap</p>
-                <p className="text-xs text-gray-600">NIP</p>
+                <p className="text-xs text-gray-600">NIP/NIDN</p>
                 <p className="text-xs text-gray-600">Status</p>
                 <p className="text-xs text-gray-600">Peran</p>
               </div>

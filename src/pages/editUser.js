@@ -54,12 +54,12 @@ function EditUser() {
           </div>
           <div className="flex items-center justify-between  mb-3 lg:mb-5">
             <label className="w-[27%] text-gray-700 py-2 text-sm lg:text-md" htmlFor="NIP">
-              NIP
+              NIP/NIDN
             </label>
             <input
               onChange={(ev) => handleInput(ev.target.value, setNIP, setErr)}
               className="w-[70%] px-2 py-1 lg:p-2 bg-gray-100 text-gray-700 rounded-md outline-blue-700 ring-2 ring-blue-900"
-              placeholder="Masukan NIP"
+              placeholder="Masukan NIP/NIDN"
               defaultValue={NIP}
               type="number"
               id="NIP"

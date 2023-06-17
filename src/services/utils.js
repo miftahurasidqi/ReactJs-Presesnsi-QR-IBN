@@ -57,6 +57,24 @@ const getEditUser = () => {
     peran: user[4],
   };
 };
+const getKehadiranUser = () => {
+  const stringUser = localStorage.getItem("kehadiranUser");
+  if (!stringUser) return undefined;
+  const user = stringUser.split(":");
+
+  return {
+    _id: user[0],
+    nama: user[1],
+    nip: user[2],
+    status: user[3],
+    peran: user[4],
+  };
+};
+const lihatDetail = (e, user) => {
+  e.preventDefault();
+  localStorage.setItem("kehadiranUser", `${user._id}:${user.nama}:${user.nip}:${user.status}:${user.peran}`);
+  moveTo(`detailKehadiran/${user._id}`);
+};
 const handleInput = (inputValue, setInput, setErr) => {
   console.log(inputValue);
   setInput(inputValue);
@@ -71,4 +89,4 @@ const handleNext = (ev, halaman, setHalaman) => {
   setHalaman(halaman + 1);
 };
 
-export { moveTo, logOut, getToken, getUser, handleInput, getLocalUser, getEditUser, handlePrev, handleNext };
+export { moveTo, logOut, getToken, getUser, handleInput, getLocalUser, getEditUser, handlePrev, handleNext, getKehadiranUser, lihatDetail };
