@@ -43,16 +43,16 @@ function DaftarKehadiran() {
       <AdminNav posision={"daftarkehadiran"} role={true} />
 
       <PageCard>
-        <div className="p-4 pb-2 lg:p-6 flex justify-between">
+        <div className="p-4  lg:p-6 flex justify-between">
           <div className="">
             <h1 className="text-xl lg:text-3xl font-semibold text-gray-900">Daftar Kehadiran</h1>
             <h1 className="text-xl lg:text-3xl font-semibold text-gray-900">Pegawai</h1>
           </div>
         </div>
 
-        <div className={`p-4 pb-0 lg:p-6 w-96  lg:w-[430px]`}>
-          <div className="flex w-full justify-between">
-            <h1 className="text-gray-700 lg:text-lg px-2 py-1">Cari Berdasarkan</h1>
+        <div className={`px-4  lg:px-6 w-96  lg:w-[430px]`}>
+          <div className="flex w-full justify-between lg:-mb-2">
+            <h1 className="text-gray-700 lg:text-lg px-2 py-1 lg:py-0">Cari Berdasarkan</h1>
             <InputCari options={["Tanggal", "Nama"]} select={selectCari} setSelect={setSelectCari} />
           </div>
           <div className="flex flex-col w-full items-end">
@@ -93,7 +93,7 @@ function DaftarKehadiran() {
           </div>
         </div>
 
-        <div className="overflow-x-scroll w-full lg:-mt-8 p-2">
+        <div className="overflow-x-scroll w-full lg:-mt-5 p-2">
           <table className="w-full lg:mx-auto lg:mt-5 ">
             <thead className="bg-blue-100 border border-gray-700">
               <tr>

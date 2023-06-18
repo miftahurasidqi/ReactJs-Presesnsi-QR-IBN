@@ -74,20 +74,25 @@ function DetailKehadiran({ match }) {
         </div>
       </PageCard2>
       <PageCard2>
-        <div className=" p-2 py-3 flex w-96 gap-3 lg:w-[430px] ">
-          <h1 className="text-gray-700 lg:text-lg px-2 py-1">Pilih Bulan</h1>
-          <input
-            onChange={(ev) => {
-              setMonth(ev.target.value);
-            }}
-            className={` outline-blue-700 ring-2 ring-blue-900 bg-gray-200  p-[3px] pl-2  rounded-lg w-48 lg:w-56`}
-            type="month"
-            defaultValue={"10-11-2023"}
-            placeholder="Masukan Tahun/Bulan/Tanggal"
-          />
+        <div className=" p-2 py-3 w-full flex flex-col lg:flex-row justify-between gap-2 pr-5">
+          <div className="flex w-96 gap-3 lg:w-[430px] order-2 lg:order-1 ">
+            <h1 className="text-gray-700 lg:text-lg px-2 py-1">Pilih Bulan</h1>
+            <input
+              onChange={(ev) => {
+                setMonth(ev.target.value);
+              }}
+              className={` outline-blue-700 ring-2 ring-blue-900 bg-gray-200  p-[3px] pl-2  rounded-lg w-48 lg:w-56`}
+              type="month"
+              defaultValue={"10-11-2023"}
+              placeholder="Masukan Tahun/Bulan/Tanggal"
+            />
+          </div>
+          <div className="order-1 lg:order-2 px-2">
+            <h1 className="text-lg lg:text-xl font-semibold text-gray-800">Jumlah Kehadiran: {totalDocuments}</h1>
+          </div>
         </div>
         <div className=" w-full p-2">
-          <table className="w-full lg:mx-auto lg:mt-5 ">
+          <table className="w-full lg:mx-auto -mt-2  ">
             <thead className="bg-blue-100 border border-gray-700">
               <tr>
                 <th className="w-10 text-sm lg:text-md px-2 lg:px-4 py-1 lg:py-2 border border-gray-700">NO</th>
