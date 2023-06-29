@@ -7,8 +7,8 @@ import { InputDropdownUser } from "../components/utils/inputDropdown";
 function RegistrasiPegawai({ setClose }) {
   const [namaLengkap, setNamaLengkap] = useState("");
   const [NIP, setNIP] = useState("");
-  const [status, setStatus] = useState("");
-  const [role, setRole] = useState("Pilih peran user");
+  const [status, setStatus] = useState("Pilih Status Pegawai");
+  const [role, setRole] = useState("Pilih Peran User");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState(false);
   const [errMsg, setErrMsg] = useState("");
@@ -54,9 +54,9 @@ function RegistrasiPegawai({ setClose }) {
               required
             />
           </div>
-          <div className="flex items-center justify-between  mb-3 lg:mb-5">
+          {/* <div className="flex items-center justify-between  mb-3 lg:mb-5">
             <label className="w-[27%] text-gray-700 py-2 text-sm lg:text-md" htmlFor="Status">
-              Status
+              Status Pegawai
             </label>
             <input
               onChange={(ev) => handleInput(ev.target.value, setStatus, setErr)}
@@ -67,9 +67,10 @@ function RegistrasiPegawai({ setClose }) {
               id="Status"
               required
             />
-          </div>
+          </div> */}
 
-          <InputDropdownUser options={["admin", "pegawai"]} select={role} setSelect={setRole} setErr={setErr} />
+          <InputDropdownUser name={"Status Pegawai"} options={["Dosen Tetap", "Dosen Home Base", "Dosen Luar Biasa", "Staf"]} select={status} setSelect={setStatus} setErr={setErr} />
+          <InputDropdownUser name={"Role"} options={["admin", "pegawai"]} select={role} setSelect={setRole} setErr={setErr} />
 
           <div className="flex items-center justify-between  mb-7">
             <label className="w-[27%] text-gray-700 py-2 text-sm lg:text-md" htmlFor="Password">

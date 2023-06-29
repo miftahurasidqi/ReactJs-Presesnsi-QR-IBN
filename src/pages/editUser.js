@@ -66,7 +66,7 @@ function EditUser() {
               required
             />
           </div>
-          <div className="flex items-center justify-between  mb-3 lg:mb-5">
+          {/* <div className="flex items-center justify-between  mb-3 lg:mb-5">
             <label className="w-[27%] text-gray-700 py-2 text-sm lg:text-md" htmlFor="Status">
               Status
             </label>
@@ -79,9 +79,10 @@ function EditUser() {
               id="Status"
               required
             />
-          </div>
+          </div> */}
+          <InputDropdownUser name={"Status Pegawai"} options={["Dosen Tetap", "Dosen Home Base", "Dosen Luar Biasa", "Staf"]} select={status} setSelect={setStatus} setErr={setErr} />
+          <InputDropdownUser name={"Role"} options={["admin", "pegawai"]} select={role} setSelect={setRole} setErr={setErr} />
 
-          <InputDropdownUser options={["admin", "pegawai"]} select={role} setSelect={setRole} setErr={setErr} />
           <div className="flex items-center justify-between  mb-7">
             <label className="w-[27%] text-gray-700 py-2 text-sm lg:text-md" htmlFor="Password">
               Password

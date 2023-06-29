@@ -35,12 +35,12 @@ export function InputCari({ options, select, setSelect }) {
   );
 }
 
-export function InputDropdownUser({ options, select, setSelect, setErr }) {
+export function InputDropdownUser({ name, options, select, setSelect, setErr }) {
   const [isActive, setIsActive] = useState(false);
   return (
     <div className="relative flex items-center justify-between  mb-3 lg:mb-5">
       <label className="w-[27%] text-gray-700 py-2 text-sm lg:text-md" htmlFor="Role">
-        Role
+        {name}
       </label>
       <div
         id="parent"
@@ -53,7 +53,7 @@ export function InputDropdownUser({ options, select, setSelect, setErr }) {
         {select}
       </div>
       {isActive && (
-        <div className="absolute w-[72%] -right-1 top-10">
+        <div className="z-50 absolute w-[72%] -right-1 top-10">
           <div className="bg-gray-50 rounded-md shadow-md">
             {options.map((option, i) => (
               <div
