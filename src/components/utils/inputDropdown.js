@@ -39,7 +39,7 @@ export function InputDropdownUser({ name, options, select, setSelect, setErr }) 
   const [isActive, setIsActive] = useState(false);
   return (
     <div className="relative flex items-center justify-between  mb-3 lg:mb-5">
-      <label className="w-[27%] text-gray-700 py-2 text-sm lg:text-md" htmlFor="Role">
+      <label className="w-[27%] text-gray-700 py- text-sm lg:text-md" htmlFor="Role">
         {name}
       </label>
       <div
